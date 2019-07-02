@@ -9,4 +9,4 @@ for student in student_list:
         student_dict[student[0]].append(student[1])
 
 for student in student_dict :
-    print (student,":", student_dict[student])
+    print (student,":", sorted(student_dict[student]))
