@@ -65,7 +65,7 @@ print("#"*50)
 
 # KMeans after standarization
 
-km = KMeans(n_clusters=4)
+km = KMeans(n_clusters=3)
 km.fit(x_pca)
 y_cluster_kmeans= km.predict(x_pca)
 from sklearn import metrics

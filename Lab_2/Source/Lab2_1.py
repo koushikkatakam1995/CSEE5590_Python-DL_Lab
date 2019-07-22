@@ -66,8 +66,6 @@ adam = Adam(lr=learning_rate, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0,
 # decay_rate = learning_rate / epochs
 # # optimizer = 'Adamax'
 # activation_function = 'linear'
-
-
 def basic_model_1(x_size, y_size):
     t_model = Sequential()
     t_model.add(Dense(100, activation="tanh", input_shape=(x_size,)))
@@ -78,7 +76,6 @@ def basic_model_1(x_size, y_size):
                     optimizer=adam,
                     metrics=[metrics.mae])
     return (t_model)
-
 
 def basic_model_2(x_size, y_size):
     t_model = Sequential()
@@ -92,7 +89,6 @@ def basic_model_2(x_size, y_size):
                     optimizer=Adam(),
                     metrics=[metrics.mae])
     return (t_model)
-
 
 model = basic_model_2(arr_x_train.shape[1], 1)
 model.summary()
