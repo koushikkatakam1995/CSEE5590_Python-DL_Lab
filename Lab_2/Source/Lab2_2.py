@@ -48,9 +48,9 @@ print('ddd',arr_y_train.shape)
 print('Training samples: ', arr_x_train.shape[0])
 print('Validation samples: ', arr_x_valid.shape[0])
 
-epochs = 500
-learning_rate = 0.05
-batch_size =128
+epochs = 200
+learning_rate = 0.01
+batch_size =60
 adam = Adam(lr=learning_rate, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
 
 # epochs = 200
