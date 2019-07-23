@@ -53,9 +53,9 @@ print('ddd', arr_y_train.shape)
 print('Training samples: ', arr_x_train.shape[0])
 print('Validation samples: ', arr_x_valid.shape[0])
 
-epochs = 350
-learning_rate = 0.005
-batch_size = 256
+epochs = 200
+learning_rate = 0.001
+batch_size = 64
 decay_rate = learning_rate / epochs
 adam = Adam(lr=learning_rate, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
 
@@ -66,8 +66,6 @@ adam = Adam(lr=learning_rate, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0,
 # decay_rate = learning_rate / epochs
 # # optimizer = 'Adamax'
 # activation_function = 'linear'
-
-
 def basic_model_1(x_size, y_size):
     t_model = Sequential()
     t_model.add(Dense(100, activation="tanh", input_shape=(x_size,)))
@@ -75,10 +73,9 @@ def basic_model_1(x_size, y_size):
     t_model.add(Dense(y_size))
     print(t_model.summary())
     t_model.compile(loss='mean_squared_error',
-                    optimizer=adam,
+                    optimizer=Adamax,
                     metrics=[metrics.mae])
     return (t_model)
-
 
 def basic_model_2(x_size, y_size):
     t_model = Sequential()
@@ -92,7 +89,6 @@ def basic_model_2(x_size, y_size):
                     optimizer=Adam(),
                     metrics=[metrics.mae])
     return (t_model)
-
 
 model = basic_model_2(arr_x_train.shape[1], 1)
 model.summary()
